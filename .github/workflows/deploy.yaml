@@ -35,5 +35,7 @@ jobs:
 
   echo-event:
     runs-on: 'ubuntu-latest'
+    env:
+      TEMP: ${{ toJson(github.event) }}
     steps:
-      - run: echo ${{ toJson(github.event) }}
+      - run: echo ${{ env.TEMP }}
