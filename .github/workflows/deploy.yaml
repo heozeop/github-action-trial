@@ -36,4 +36,4 @@ jobs:
   echo-event:
     runs-on: 'ubuntu-latest'
     steps:
-      - run: echo ${{ fromJson(github.event)}}
+      - run: echo ${{ github.event}}
