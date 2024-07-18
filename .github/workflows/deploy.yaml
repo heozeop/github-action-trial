@@ -1,0 +1,33 @@
+name: 'trigger'
+
+on: 
+  push:
+    branches: [main]
+    paths:
+      - 'hello/**'
+      - 'world/**'
+      - 'nice/**'
+
+jobs:
+  echo-hello:
+    runs-on: 'ubuntu-latest'
+    if: ${{ startsWith(github.path, 'hello') }}
+    steps:
+      - run: echo hello
+  
+  echo-world:
+    runs-on: 'ubuntu-latest'
+    if: ${{ startsWith(github.path, 'world') }}
+    steps:
+      - run: echo world
+  
+  echo-nice:
+    runs-on: 'ubuntu-latest'
+    if: ${{ startsWith(github.path, 'hello') || startsWith(github.path, 'world')}}
+    steps:
+      - run: echo nice
+
+  echo-path:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - run: echo ${{ github.path }}
