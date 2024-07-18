@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
     paths:
+      - '.github/**'
       - 'hello/**'
       - 'world/**'
       - 'nice/**'
@@ -31,3 +32,8 @@ jobs:
     runs-on: 'ubuntu-latest'
     steps:
       - run: echo ${{ github.path }}
+
+  echo-event:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - run: echo ${{ fromJson(github.event)}}
