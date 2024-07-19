@@ -31,11 +31,4 @@ jobs:
   echo-path:
     runs-on: 'ubuntu-latest'
     steps:
-      - run: echo ${{ github.path }}
-
-  echo-event:
-    runs-on: 'ubuntu-latest'
-    env:
-      TEMP: ${{ toJson(github.event) }}
-    steps:
-      - run: echo ${{ env.TEMP }}
+      - run: echo ${{ github.event_path }}
